@@ -1,5 +1,5 @@
 #
-# esteam-capistrano-php-template
+# generic capistrano-php-template
 # Used to template PHP application deployments via capistrano
 #
 
