@@ -46,3 +46,32 @@ set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "Capfile",
 
 # If you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
+
+# This is if you want to make database migrations
+# How it works is like this:
+#   - Create an sql directory in your project
+#   - Create files named 20130918_something_descriptive.sql
+#   - Place that SQL file in your sql directory
+#   - This code will create a file named shared/migration.list
+#   - The file will contain all of the names of the migration files ALREADY RUN
+#   - This code will creat ea file named /shared/migration.available
+#   - This file will contain available migration files (all files in the sql directory)
+#   - A comparison of the files will be done, any migrations not already run will then run
+#set :mysql_params, "-u user -ppassword"
+#set :mysql_db_name, "database_name"
+
+#after :deploy, :migrate
+#desc "migrate database on server"
+#task :migrate do
+#  run "touch #{shared_path}/migration.list ;
+#  ls -1v #{current_path}/sql/*.sql 2>/dev/null > #{shared_path}/migration.available;
+#  diff #{shared_path}/migration.available #{shared_path}/migration.list | awk \"/^</ {print \\$2}\" | while read f ;
+#  do echo \"migrating $(basename $f)\"; mysql #{mysql_params} #{mysql_db_name} < $f && echo $f >> #{shared_path}/migration.list ; done;
+#  rm -f #{shared_path}/migration.available"
+#end
+
+#after "deploy:setup", :create_db
+#desc "create database on server"
+#task :create_db do
+#  run "mysql #{mysql_params} -e \"CREATE DATABASE #{mysql_db_name}\""
+#end
