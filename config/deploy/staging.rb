@@ -15,3 +15,7 @@ set :deploy_to, "/var/www/your-application-path"
 # if you use staging as your test-ready code branch then 
 # leave this as-is
 set :branch, 'staging'
+
+# If using MySQL Migrations, set the dbname, uname, and pass here
+#set :mysql_params, "-u user -ppassword"
+#set :mysql_db_name, "database_name"

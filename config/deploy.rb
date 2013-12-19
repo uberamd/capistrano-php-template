@@ -48,6 +48,7 @@ set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "Capfile",
 # after "deploy:restart", "deploy:cleanup"
 
 # This is if you want to make database migrations
+# Be sure to set the db info in the deploy/*.rb files
 # How it works is like this:
 #   - Create an sql directory in your project
 #   - Create files named 20130918_something_descriptive.sql
@@ -57,8 +58,6 @@ set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules", "Capfile",
 #   - This code will creat ea file named /shared/migration.available
 #   - This file will contain available migration files (all files in the sql directory)
 #   - A comparison of the files will be done, any migrations not already run will then run
-#set :mysql_params, "-u user -ppassword"
-#set :mysql_db_name, "database_name"
 
 #after :deploy, :migrate
 #desc "migrate database on server"

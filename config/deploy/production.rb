@@ -15,3 +15,7 @@ set :deploy_to, "/var/www/your-application-path"
 # if you use master as your production-ready code branch then 
 # leave this as-is
 set :branch, 'master'
+
+# If using MySQL Migrations, set the dbname, uname, and pass here
+#set :mysql_params, "-u user -pYOURPASSWORD"
+#set :mysql_db_name, "database_name"
